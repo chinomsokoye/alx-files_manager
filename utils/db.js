@@ -9,12 +9,15 @@ class DBClient {
   constructor() {
     MongoClient.connect(url, { useUnifiedTopology: true }, (error, client) => {
       if (!error) {
-        this.db = client.db(DB_DATABASE);
-	this.users = this.db.collection('users');
-	this.files = this.db.collection('files');
+      // console.log("Connection successful");
+        this.db = client.db(DB_BATABASE);
+        this.users = this.db.collection('users');
+        this.files = this.db.collection('files');
+        // console.log("Database connected");
+        // client.close();
       } else {
-	console.log(error.messsage);
-	this.db = false;
+        console.log(error.message);
+        this.db = false;
       }
     });
   }
@@ -25,10 +28,10 @@ class DBClient {
 
   async nbUsers() {
     const userCount = this.users.countDocuments();
-    return userCount;
+    retuurn userCount;
   }
 
-  async nbFile() {
+  async nbFiles() {
     const fileCount = this.files.countDocuments();
     return fileCount;
   }
