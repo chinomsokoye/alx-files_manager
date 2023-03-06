@@ -1,9 +1,10 @@
 import express from 'express';
 import AppController from '../controllers/AppController';
+/*
 import AuthController from '../controllers/AuthController';
 import FilesController from '../controllers/FilesController';
 import UsersController from '../controllers/UsersController';
-
+*/
 function controllerRouting (app) {
   const router = express.Router();
   app.use('/', router);
@@ -16,6 +17,7 @@ function controllerRouting (app) {
     AppController.getStats(req, res);
   });
 
+/*
   router.post('/users', (req, res) => {
     UsersController.postNew(req, res);
   });
@@ -55,6 +57,7 @@ function controllerRouting (app) {
   router.get('/files/:id/data', (req, res) => {
     FilesController.getFile(req, res);
   });
+*/
 }
 
 export default controllerRouting;
