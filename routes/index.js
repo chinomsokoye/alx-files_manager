@@ -1,8 +1,8 @@
 import express from 'express';
 import AppController from '../controllers/AppController';
+import UsersController from '../controllers/UsersController';
 /*
 import FilesController from '../controllers/FilesController';
-import UsersController from '../controllers/UsersController';
 import AuthController from '../controllers/AuthController';
 */
 
@@ -19,11 +19,10 @@ const routeController = (app) => {
     AppController.getStats(req, res);
   });
 
-/*
   router.post('/users', (req, res) => {
     UsersController.postNew(req, res);
   });
-
+/*
   router.get('/connect', (req, res) => {
     AuthController.getConnect(req, res);
   });
