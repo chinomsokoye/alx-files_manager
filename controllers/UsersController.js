@@ -7,7 +7,7 @@ import getIdAndKey from '../utils/users';
 const userQ = new Queue('userQ');
 
 class UsersController {
-  static async postNew(req, res) {
+  static async postNew (req, res) {
     const { email, password } = req.body;
 
     if (!email) return res.status(400).send({ error: 'Missing email' });
@@ -19,22 +19,22 @@ class UsersController {
 
     const insertStat = await dbClient.users.insertOne({
       email,
-      password: secPass,
+      password: secPass
     });
 
     const createdUser = {
       id: insertStat.insertedId,
-      email,
+      email
     };
 
     await userQ.add({
-      userId: insertStat.insertedId.toString(),
+      userId: insertStat.insertedId.toString()
     });
 
     return res.status(201).send(createdUser);
   }
 
-  static async getMe(req, res) {
+  static async getMe (req, res) {
     const { userId } = await getIdAndKey(req);
 
     const user = await dbClient.users.findOne({ _id: ObjectId(userId) });
