@@ -2,7 +2,7 @@ import redisClient from '../utils/redis';
 import dbClient from '../utils/db';
 
 class AppController {
-  static getStatus(request, response) {
+  static getStatus (request, response) {
     try {
       const redis = redisClient.isAlive();
       const db = dbClient.isAlive();
@@ -13,7 +13,7 @@ class AppController {
     }
   }
 
-  static async getStats(request, response) {
+  static async getStats (request, response) {
     try {
       const users = await dbClient.nbUsers();
       const files = await dbClient.nbFiles();

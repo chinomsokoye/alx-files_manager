@@ -21,6 +21,7 @@
     "mime-types": "^2.1.27",
     "mongodb": "^3.5.9",
     "redis": "^2.8.0",
+    "semistandard": "^16.0.1",
     "sha1": "^1.1.1",
     "uuid": "^8.2.0"
   },
