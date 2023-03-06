@@ -1,14 +1,14 @@
 import express from 'express';
 import AppController from '../controllers/AppController';
-import UsersController from '../controllers/UsersController';
+
 /*
-import FilesController from '../controllers/FilesController';
 import AuthController from '../controllers/AuthController';
+import FilesController from '../controllers/FilesController';
+import UsersController from '../controllers/UsersController';
 */
 
-const router = express.Router();
-
-const routeController = (app) => {
+function controllerRouting (app) {
+  const router = express.Router();
   app.use('/', router);
 
   router.get('/status', (req, res) => {
@@ -18,11 +18,11 @@ const routeController = (app) => {
   router.get('/stats', (req, res) => {
     AppController.getStats(req, res);
   });
-
+/*
   router.post('/users', (req, res) => {
     UsersController.postNew(req, res);
   });
-/*
+
   router.get('/connect', (req, res) => {
     AuthController.getConnect(req, res);
   });
@@ -59,6 +59,6 @@ const routeController = (app) => {
     FilesController.getFile(req, res);
   });
 */
-};
+}
 
-export default routeController;
+export default controllerRouting;
