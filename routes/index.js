@@ -1,12 +1,14 @@
 import express from 'express';
 import AppController from '../controllers/AppController';
 /*
-import AuthController from '../controllers/AuthController';
 import FilesController from '../controllers/FilesController';
 import UsersController from '../controllers/UsersController';
+import AuthController from '../controllers/AuthController';
 */
-function controllerRouting (app) {
-  const router = express.Router();
+
+const router = express.Router();
+
+const routeController = (app) => {
   app.use('/', router);
 
   router.get('/status', (req, res) => {
@@ -58,6 +60,6 @@ function controllerRouting (app) {
     FilesController.getFile(req, res);
   });
 */
-}
+};
 
-export default controllerRouting;
+export default routeController;
