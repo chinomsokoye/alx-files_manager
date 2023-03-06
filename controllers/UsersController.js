@@ -4,7 +4,7 @@ import dbClient from '../utils/db';
 import redisClient from '../utils/redis';
 
 class UsersController {
-  static async postNew(request, response) {
+  static async postNew (request, response) {
     const { email, password } = request.body;
     if (!email) {
       response.status(400).json({ error: 'Missing email' });
@@ -25,7 +25,7 @@ class UsersController {
         collection.insertOne({ email, password: hashPwd });
         const newUser = await collection.findOne(
           { email },
-          { projection: { email: 1 } },
+          { projection: { email: 1 } }
         );
         response.status(201).json({ id: newUser._id, email: newUser.email });
       }
@@ -35,7 +35,7 @@ class UsersController {
     }
   }
 
-  static async getMe(request, response) {
+  static async getMe (request, response) {
     try {
       const userToken = request.header('X-Token');
       const authKey = `auth_${userToken}`;
