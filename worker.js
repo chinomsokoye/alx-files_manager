@@ -4,7 +4,6 @@ const Bull = require('bull');
 const { ObjectId } = require('mongodb');
 const imageThumbnail = require('image-thumbnail');
 const fs = require('fs');
-
 const fileQueue = new Bull('fileQueue');
 const userQueue = new Bull('userQueue');
 
