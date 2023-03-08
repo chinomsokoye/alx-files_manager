@@ -25,7 +25,7 @@ class UsersController {
         collection.insertOne({ email, password: hashPwd });
         const newUser = await collection.findOne(
           { email },
-          { projection: { email: 1 } },
+          { projection: { email: 1 } }
         );
         response.status(201).json({ id: newUser._id, email: newUser.email });
       }
