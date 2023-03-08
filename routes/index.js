@@ -9,7 +9,6 @@ const routeController = (app) => {
   app.use('/', router);
 
   // App Controller
-
   router.get('/status', (req, res) => {
     AppController.getStatus(req, res);
   });
@@ -33,7 +32,6 @@ const routeController = (app) => {
   router.get('/users/me', (req, res) => {
     UsersController.getMe(req, res);
   });
-
   // router.post('/files', (req, res) => {
   //   FilesController.postUpload(req, res);
   // });
